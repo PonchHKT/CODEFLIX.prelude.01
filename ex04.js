@@ -1,21 +1,18 @@
-function isLowerCase(char) {
-  return (char >= 97 && char <= 122)
-}
+function capitalize(str = '', restToLoweropt = false) {
+  let sentence = ''
 
-function capitalize(str = '', restToLower = false) {
-  const result = []
-  const firstCharCode = str.charCodeAt(0)
-
-  if (isLowerCase(firstCharCode)) {
-    result[0] = String.fromCharCode(firstCharCode - 32)
+  for (let i = 0; i < str.length; i++) {
+    if (i === 0 && str.charCodeAt(0) >= 97 && str.charCodeAt(0) <= 122) {
+      sentence += String.fromCharCode(str.charCodeAt(0) - 32)
+    } else if (i !== 0 && restToLoweropt && str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90) {
+      sentence += String.fromCharCode(str.charCodeAt(i) + 32)
+    } else {
+      sentence += str[i]
+    }
   }
 
-  for (let i = 1; i < str.length; i++) {
-    result[i] = str[i]
-  }
-
-  return result.join('')
+  return sentence
 }
 
-const capitalizedString = capitalize('one Code')
-console.log(capitalizedString)
+console.log(capitalize('one Code'))
+console.log(capitalize('One CODE', true))

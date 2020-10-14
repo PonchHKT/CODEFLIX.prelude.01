@@ -1,21 +1,18 @@
 function lowerCase(str = '') {
-  const result = []
+    let sentence = ''
 
-  for (let i = 0; i < str.length; i++) {
-    const charCode = str[i].charCodeAt(0)
+    for(let i = 0; i < str.length; i++) {
+        const code = str.charCodeAt(i)
 
-    if (charCode >= 65 && charCode <= 90) {
-      result[i] = charCode + 32
-    } else {
-      result[i] = charCode
+        if (code >= 65 && code <= 90) {
+            sentence += String.fromCharCode(code + 32)
+        } else {
+            sentence += String.fromCharCode(code)
+        }
     }
 
-    result[i] = String.fromCharCode(result[i])
-  }
-
-  return result.join('')
+    return sentence
 }
 
-// TESTS
-console.log(lowerCase('Chopper'), 'RESULT: chopper')
-console.log(lowerCase('TONY TONY'), 'RESULT: tony tony')
+console.log(lowerCase('Chopper'))
+console.log(lowerCase('TONY TONY'))

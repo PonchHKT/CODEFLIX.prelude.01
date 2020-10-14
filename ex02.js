@@ -1,21 +1,18 @@
 function upperCase(str = '') {
-  const result = []
+  let sentence = ''
 
-  for (let i = 0; i < str.length; i++) {
-    const charCode = str[i].charCodeAt(0)
+  for(let i = 0; i < str.length; i++) {
+    const code = str.charCodeAt(i)
 
-    if (charCode >= 97 && charCode <= 122) {
-      result[i] = charCode - 32
+    if (code >= 97 && code <= 122) {
+      sentence += String.fromCharCode(code - 32)
     } else {
-      result[i] = charCode
+      sentence += String.fromCharCode(code)
     }
-
-    result[i] = String.fromCharCode(result[i])
   }
 
-  return result.join('')
+  return sentence
 }
 
-// TESTS
-console.log(upperCase('Chopper'), 'RESULT: chopper')
-console.log(upperCase('TONY TONY'), 'RESULT: tony tony')
+console.log(upperCase('Chopper'))
+console.log(upperCase('Tony Tony'))

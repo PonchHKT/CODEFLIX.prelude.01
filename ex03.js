@@ -1,10 +1,11 @@
-function length(string = '') {
-  let x = 0
+function length(str) {
+    let i = 0
 
-  for (let i in string)
-    x++
+    while(str[i] != undefined) {
+        i++
+    }
 
-  return x
+    return i
 }
 
-length('ch0pper')
+console.log(length('Bon'))
